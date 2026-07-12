@@ -1,0 +1,9 @@
+{application, errm_jwt, [
+  {description, "Errm... JWT, a Json Web Token implementation for Erlang/OTP 28"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications, [kernel, stdlib, crypto, errm_json, errm_uuid]},
+  {env, []},
+  {licenses, ["BSD-3"]},
+  {links, [{"Codeberg", "https://codeberg.org/h4rl/errm-JWT"}]}
+]}.

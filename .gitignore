@@ -1,0 +1,9 @@
+.direnv
+_build
+_checkouts
+result
+*.beam
+*.txt
+*.log
+*.dump
+*.crashdump

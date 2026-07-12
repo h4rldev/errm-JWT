@@ -1,0 +1,8 @@
+[{<<"errm_json">>,
+  {git,"https://github.com/h4rldev/errm-JSON",
+       {ref,"762a83852565184e348d055154e33a178e7eb12d"}},
+  0},
+ {<<"errm_uuid">>,
+  {git,"https://github.com/h4rldev/errm-UUID",
+       {ref,"d72b1e7702fe1dd5f9e31da3213fb09dc5726566"}},
+  0}].

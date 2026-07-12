@@ -1,0 +1,97 @@
+{
+  "nodes": {
+    "errm-json": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1783665863,
+        "narHash": "sha256-kJIUo/U484NTEy5B1oT2yD3DgRHGSpJHnzMC8SLKLsY=",
+        "owner": "h4rldev",
+        "repo": "errm-JSON",
+        "rev": "762a83852565184e348d055154e33a178e7eb12d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "h4rldev",
+        "repo": "errm-JSON",
+        "type": "github"
+      }
+    },
+    "errm-uuid": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1783665908,
+        "narHash": "sha256-WenE3Tp4itLDYW0/Zau+mHmFSv/2o9u1wHOxhHga/RU=",
+        "owner": "h4rldev",
+        "repo": "errm-UUID",
+        "rev": "d72b1e7702fe1dd5f9e31da3213fb09dc5726566",
+        "type": "github"
+      },
+      "original": {
+        "owner": "h4rldev",
+        "repo": "errm-UUID",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1783522502,
+        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "errm-json": "errm-json",
+        "errm-uuid": "errm-uuid",
+        "nixpkgs": "nixpkgs_3"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

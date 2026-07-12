@@ -11,12 +11,16 @@ sign(Claims, Key, Alg) ->
 
 -spec sign(Claims :: claims(), Key :: key(), Alg :: alg(), Opts :: sign_opts()) -> {ok, JWT :: binary()} | {error, Reason :: term()}.
 sign(Claims, Key, Alg, Opts) ->
-  try
     Claims1 = errm_jwt_claims:add_standard(Claims, Opts),
+
+    AlgString = case alg_to_string(Alg) of
+      Bin when is_binary(Bin) -> Bin;
+      {error, Reason} -> throw({error, Reason})
+    end,
 
     HeaderMap = maps:get(header, Opts, #{}),
     Header0 = HeaderMap#{
-      <<"alg">> => alg_to_string(Alg),
+      <<"alg">> => AlgString,
       <<"typ">> => <<"JWT">>
     },
     Header = case maps:get(kid, Opts, undefined) of
@@ -36,11 +40,7 @@ sign(Claims, Key, Alg, Opts) ->
     Sig = errm_jwt_signer:sign(SigningInput, Key, Alg),
 
     SigB64 = base64:encode(Sig, #{mode => 'urlsafe', padding => false}),
-    {ok, <<SigningInput/binary, ".", SigB64/binary>>}
-  catch
-    Class:Reason:Stacktrace ->
-      {error, {Class, Reason, Stacktrace}}
-  end.
+    {ok, <<SigningInput/binary, ".", SigB64/binary>>}.
 
 -spec verify(JWT :: binary(), Key :: key(), Alg :: alg()) -> {ok, Claims :: map()} | {error, Reason :: term()}.
 verify(JWT, Key, Alg) ->
@@ -99,7 +99,7 @@ decode_payload(JWT) ->
   PayloadBin = base64:decode(PayloadB64, #{mode => 'urlsafe', padding => false}),
   errm_json:decode(PayloadBin).
 
--spec alg_to_string(alg()) -> binary().
+-spec alg_to_string(alg()) -> binary() | {error, unknown_alg}.
 alg_to_string(hs256) -> <<"HS256">>;
 alg_to_string(hs384) -> <<"HS384">>;
 alg_to_string(hs512) -> <<"HS512">>;
@@ -108,4 +108,5 @@ alg_to_string(rs384) -> <<"RS384">>;
 alg_to_string(rs512) -> <<"RS512">>;
 alg_to_string(es256) -> <<"ES256">>;
 alg_to_string(es384) -> <<"ES384">>;
-alg_to_string(es512) -> <<"ES512">>.
+alg_to_string(es512) -> <<"ES512">>;
+alg_to_string(_) -> {error, unknown_alg}.

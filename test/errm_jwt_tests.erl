@@ -1,7 +1,5 @@
 -module(errm_jwt_tests).
 -include_lib("eunit/include/eunit.hrl").
--include("include/errm_jwt.hrl").
-
 -define(SECRET, <<"my-very-secret-key">>).
 
 setup_rsa_keys() ->

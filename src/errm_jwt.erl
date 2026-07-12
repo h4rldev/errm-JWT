@@ -2,6 +2,8 @@
 -export([sign/3, sign/4, verify/3, verify/4]).
 -export([decode_header/1, decode_payload/1]).
 -export([alg_to_string/1]).
+
+%% elp:ignore W0020
 -include("include/errm_jwt.hrl").
 -export_type([alg/0, key/0, sign_opts/0, verify_opts/0, token/0, header/0, claims/0]).
 
